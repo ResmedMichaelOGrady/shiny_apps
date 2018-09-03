@@ -54,6 +54,7 @@ server <- function(input, output) {
     }))
     
     doppler_file$time_diff <- as.POSIXct(doppler_file$`end_date/time`, format = "%Y-%m-%d %H:%M:%S") - as.POSIXct(doppler_file$`start_date/time`, format = "%Y-%m-%d %H:%M:%S")
+    units(doppler_file$time_diff) <- c("hours")
     doppler_file$time_diff <- doppler_file$time_diff %>% round(digits = 2) %>% as.character()
     doppler_file
   }
